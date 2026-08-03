@@ -12,8 +12,6 @@ plot(x, y, type = "l", asp = 1, lwd = 2,
      main = expression(paste("Circle of radius ", sqrt(2)/2)))
 arrows(lim[1], 0, lim[2], 0, length = 0.1)
 arrows(0, lim[1], 0, lim[2], length = 0.1)
-text(lim[2], 0, "x", pos = 3)
-text(0, lim[2], "y", pos = 4)
 abline(a = 1, b = -1, lwd = 2, col = "red")
 points(c(0, 1), c(1, 0), pch = 19)
 text(0, 1, "(0,1)", pos = 2)
