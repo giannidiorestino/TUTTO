@@ -18,4 +18,8 @@ abline(a = 1, b = -1, lwd = 2, col = "red")
 points(c(0, 1), c(1, 0), pch = 19)
 text(0, 1, "(0,1)", pos = 2)
 text(1, 0, "(1,0)", pos = 4)
+
+# Projective line [1:1/3]: line through the origin with direction ratio 1 : 1/3
+abline(a = 0, b = (1 / 3) / 1, lwd = 2, col = "blue", lty = 2)
+text(lim[2], lim[2] / 3, "[1:1/3]", pos = 1, col = "blue")
 dev.off()
