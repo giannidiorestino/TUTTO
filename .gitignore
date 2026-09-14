@@ -1,0 +1,8 @@
+auto/
+*.aux
+*.log
+*.blg
+*.bbl
+*.fdb_latexmk
+*.fls
+main.pdf
