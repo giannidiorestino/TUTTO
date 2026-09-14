@@ -25,5 +25,8 @@ fi
 git -C "$repo_dir" fetch origin main
 git -C "$repo_dir" checkout origin/main -- tutto.bib
 
-cp "$repo_dir/tutto.bib" "$target/tutto.bib"
-echo "Copied tutto.bib into $target"
+{
+  echo "% Synced from TUTTO (github.com/giannidiorestino/TUTTO) on $(date +%Y-%m-%d)"
+  cat "$repo_dir/tutto.bib"
+} > "$target/tutto.bib"
+echo "Copied tutto.bib into $target (dated $(date +%Y-%m-%d))"
