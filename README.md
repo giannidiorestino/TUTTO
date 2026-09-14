@@ -30,3 +30,19 @@ git add tutto.bib
 git commit -m "Update bibliography"
 git push
 ```
+
+## Removing duplicate entries
+
+Use `dedup-tutto-bib.py`, not `bibtex-tidy`'s `--duplicates` option — its
+fuzzy title matching has previously merged distinct works that just
+happen to share a generic title. This script only merges entries on
+exact, unambiguous signals: identical citation keys, identical DOIs, or
+a legacy 2-digit-year key next to its full 4-digit-year counterpart
+(e.g. `foo:99` and `foo:1999`).
+
+```
+./dedup-tutto-bib.py tutto.bib          # dry run: report proposed merges
+./dedup-tutto-bib.py tutto.bib --apply  # write the merge (keeps tutto.bib.bak)
+```
+
+Review the reported merges before trusting them, then commit as usual.
