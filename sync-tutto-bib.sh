@@ -15,7 +15,15 @@ if [ $# -ne 1 ]; then
 fi
 
 target="$1"
-repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+script_path="${BASH_SOURCE[0]}"
+while [ -L "$script_path" ]; do
+  link_target="$(readlink "$script_path")"
+  case "$link_target" in
+    /*) script_path="$link_target" ;;
+    *) script_path="$(dirname "$script_path")/$link_target" ;;
+  esac
+done
+repo_dir="$(cd "$(dirname "$script_path")" && pwd)"
 
 if [ ! -d "$target" ]; then
   echo "Target directory does not exist: $target" >&2
